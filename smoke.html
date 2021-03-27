@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000046;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #1CB5E0, #000046);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #1CB5E0, #000046);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            display: flex;
+            justify-content: center;
+            padding: 100px;
+            width: 100%;
+            height: 100vh;
+            font-family: poppins;
+        }
+
+        .box {
+            margin: 100px;
+            max-width: 900px;
+            background: #000000;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #434343, #000000);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #434343, #000000);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            padding: 50px;
+        }
+
+        .box span {
+            font-size: 22px;
+            font-family: poppins;
+            line-height: 1.7;
+            color: #fff;
+            letter-spacing: 1px;
+            word-wrap: break-word;
+        }
+
+        .box {
+            user-select: none;
+        }
+
+        .box span {
+            letter-spacing: 2px;
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+        }
+
+        .box span.active {
+            animation: smokey 2s linear forwards;
+            transform-origin: bottom;
+        }
+
+        @keyframes smokey {
+            0% {
+                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(150px) translateY(-150px) rotate(180deg) scale(3);
+                filter: blur(15px);
+                cursor: default;
+            }
+
+            100% {
+                transform: translateX(300px) translateY(-300px) rotate(360deg) scale(2);
+                opacity: 0;
+                filter: blur(20px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui eos numquam quibusdam architecto soluta
+        similique nemo a adipisci dolores, eligendi eveniet dolore maxime officiis voluptatem eaque alias deserunt
+        perspiciatis atque?Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui eos numquam quibusdam
+        architecto soluta Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui eos numquam quibusdam architecto
+        soluta
+        similique nemo a adipisci dolores, eligendi eveniet dolore maxime officiis voluptatem eaque alias deserunt
+        perspiciatis atque?Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui eos numquam quibusdam
+        architecto soluta
+    </div>
+
+    <script>
+        var cont = document.querySelector(".box");
+        // var newcont = document.querySelector(".newboxcont");
+        cont.innerHTML = cont.textContent.replace(/\S/g, '<span>$&</span>');
+        var allspan = document.querySelectorAll(".box span");
+        // allspan.forEach(element => {
+        //     element.addEventListener("mouseover", () => {
+        //         element.classList.add("active");
+        //     });
+        // });
+
+        var i = 0;
+        while (i < allspan.length) {
+            allspan[i].addEventListener("mouseover", function () {
+                this.classList.add("active");
+            });
+            i++;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
